@@ -36,21 +36,23 @@ All paths relative to project root.
 wiki/
 ├── index.md            # Main index (paginate into index-1.md at ~200 entries)
 ├── log.md              # Append-only action log
-├── raw/                # Immutable source material — never modify after creation
-│   ├── articles/
-│   ├── books/
-│   ├── papers/
-│   └── conversations/
-├── topics/             # Processed knowledge — append & correct only, never delete
+├── raw/                # Immutable source material, never modify after creation
+│   └── <topic>/        # Topic dir, mirrors topics/ structure
+│       ├── articles/
+│       ├── papers/
+│       ├── books/
+│       ├── conversations/
+│       └── other/
+├── topics/             # Processed knowledge, append and correct only, never delete
 │   └── <topic>/
 │       └── <article>.md
-└── archives/           # Frozen query snapshots — never updated
+└── archives/           # Frozen query snapshots, never updated
 ```
 
-- `raw/` — Immutable. Type subdirs, optional topic nesting. Text gets metadata header. Binaries as-is.
+- `raw/<topic>/<type>/` — Immutable. Topic-first organization, then file type. Text gets metadata header. Binaries as-is.
 - `topics/` — Processed knowledge. Max 2 levels of subdirs. Append-only growth.
-- `archives/` — Frozen, point-in-time snapshots of synthesized answers. never cascade-updated, never merged to topic articles, only cite `topics/` articles (not `raw/` sources).
-- `index.md` — One row per article, grouped by topic, link + summary.
+- `archives/` — Frozen, point-in-time snapshots of synthesized answers. Never cascade-updated, never merged to topic articles. Only cite `topics/` articles, not `raw/` sources.
+- `index.md` — One row per article, grouped by topic, link plus summary.
 - `log.md` — Every action logged.
 - Dates in content: log entries get `[YYYY-MM-DD HH:MM]`, raw metadata headers get Published date, corrections get date annotation. No dates in filenames. Filesystem modification time for article "last updated".
 </structure>
@@ -69,7 +71,7 @@ If Query or Check can't find wiki structure: tell user to add something first.
 ## Conventions
 
 - Standard markdown, relative links throughout.
-- `topics/` max 2 levels. `raw/` any reasonable depth.
+- `topics/` max 2 levels. `raw/<topic>/<type>/` mirrors topics/ structure.
 - Inside wiki files: relative links. In conversation: project-root-relative paths.
 - Knowledge only grows — append and correct, never delete or reduce topic content.
 - Binaries in `raw/` referenced by `.md` counterpart in `topics/`.

@@ -1,7 +1,7 @@
 # {Title}
 
 > Sources: {Author1/Org1, YYYY-MM-DD; Author2/Org2, YYYY-MM-DD}
-> Raw: [[{source1}]](../../raw/{type}/{topic}/{filename}.md); [[{source2}]](../../raw/{type}/{topic}/{filename2}.md)
+> Raw: [[{source1}]](../../raw/{topic}/{type}/{filename}.md); [[{source2}]](../../raw/{topic}/{type}/{filename2}.md)
 > Updated: {YYYY-MM-DD}
 
 ## Overview

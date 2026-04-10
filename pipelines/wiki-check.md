@@ -7,7 +7,7 @@ Wiki quality checks.
 
 - **Index** — missing file → add `(no summary)`. Missing entry → mark `[MISSING]`, don't delete.
 - **Internal links** — broken → search wiki for same filename. Unique match → fix. Else → report.
-- **Raw refs** — broken Raw field link → search `./wiki/raw/`. Unique match → fix. Else → report.
+- **Raw refs** — broken Raw field link → search `./wiki/raw/<topic>/<type>/`. Unique match → fix. Else → report.
 - **See Also** — add obvious missing cross-refs, remove dead links.
 </autofix>
 

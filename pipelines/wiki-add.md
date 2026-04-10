@@ -5,20 +5,23 @@ Source (URL, file, paste) → ./raw/ → ./topics/. Always both phases.
 <fetch>
 ## Fetch → ./raw/
 
-1. Acquire via available tools. Unreachable → ask user to paste.
-2. Classify source → `./raw/` subdir: `./raw/articles/`, `./raw/books/`, `./raw/papers/`, `./raw/conversations/`, `./raw/other/`. Reuse existing subdirs when topic is close enough.
-3. Save as `./raw/<type>/<optional-topic>/descriptive-slug.md`
+1. Read `./wiki/index.md` to find semantically related or overlapping topics.
+2. **Related topic found** → use that topic name for this source.
+   **No related topic** → pick a new topic slug, create `./raw/<topic>/`.
+3. Acquire via available tools. Unreachable → ask user to paste.
+4. Save to `./raw/<topic>/<type>/<slug>.md`
+   - Type: `articles/`, `papers/`, `books/`, `conversations/`, `other/`
    - Kebab-case slug from title, max 60 chars. Duplicates? → `-2.md`
    - Published unknown? → metadata `Unknown`
    - Header per `../references/raw-template.md`. Preserve original text, clean noise only. Do not rewrite opinions unless false.
-   - Binaries: save directly, no metadata header.
+   - Binaries: save directly to `./raw/<topic>/<type>/`, no metadata header.
 </fetch>
 
 <process>
 ## Process → ./topics/
 
-- **Same thesis as existing** → append to article, add source to metadata
-- **New concept** → new article, name after concept not raw file
+- **Related topic exists** → append to matching article in `./topics/<topic>/`, add source to metadata
+- **No related article** → new article, name after concept not raw file
 - **Binary** → `<filename>.md` linking to raw. Use `../references/processed-binary-template.md`
 - **Spans topics** → most relevant dir + See Also cross-refs
 

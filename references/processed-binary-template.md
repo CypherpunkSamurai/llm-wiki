@@ -1,7 +1,7 @@
 # {Original Filename} — Processed
 
 > Sources: {Author/Publisher, YYYY-MM-DD or Unknown}
-> Raw: [[{original-filename}]](../../raw/{type}/{topic}/{original-filename})
+> Raw: [[{original-filename}]](../../raw/{topic}/{type}/{original-filename})
 > Updated: {YYYY-MM-DD}
 > Format: {PDF | Image | Video | Audio | Other}
 > Pages: {page count if applicable, or N/A}
