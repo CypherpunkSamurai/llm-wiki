@@ -1,9 +1,13 @@
 ---
-name: knowledge
-description: "Build and maintain a persistent personal knowledge base. Use when: ingesting sources (URLs, files, pasted text), querying existing knowledge, researching topics, processing raw material into topic pages, or any mention of 'add to wiki', 'what do I know about', 'knowledge base', 'ingest', 'research this'. Trigger aggressively — if the user is accumulating, organizing, or retrieving structured knowledge, this skill applies."
+name: llm-wiki
+description: "Build and maintain a persistent personal knowledge base. Ingests sources (URLs, files, pasted text), processes them into topic pages, and answers questions with citations. Trigger when the user mentions 'add to wiki', 'knowledge base', 'ingest', or 'research this'."
+license: MIT
+metadata:
+    skill-author: CypherpunkSamurai
 ---
 
-# Knowledge
+
+# LLM Wiki
 
 Persistent, append-only knowledge base. Raw sources → processed references → topic knowledge.
 
