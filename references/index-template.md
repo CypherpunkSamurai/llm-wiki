@@ -1,7 +1,7 @@
 # Knowledge Base Index
 
 > Pages: [index](index.md) | [index-1](index-1.md)
-{Include the pagination header only when multiple index pages exist. Remove this line if only index.md exists.}
+{Pagination header only when multiple pages exist. Remove if only index.md.}
 
 ## {topic-name}
 
@@ -14,7 +14,7 @@
 
 ## {another-topic}
 
-{One-line description of this topic area.}
+{One-line description.}
 
 | Article | Summary | Updated |
 |---------|---------|---------|
@@ -22,15 +22,10 @@
 
 ## Archives
 
-Synthesized query results preserved as point-in-time snapshots.
+Synthesized query snapshots.
 
 | Article | Summary | Updated |
 |---------|---------|---------|
 | [{Archived Query}](archives/{archive-file}.md) | [Archived] {One-line summary} | {YYYY-MM-DD} |
 
-{PAGINATION RULES:
-- When index.md exceeds ~200 entries, move the oldest/least-active topic sections to index-1.md
-- Keep the most active topics in index.md
-- Add the pagination header (> Pages: ...) to all index files
-- Continue paginating as index-2.md, index-3.md, etc.
-- All index files follow this same format}
+{PAGINATION: At ~200 entries, move oldest topics to index-1.md etc. Keep active topics in index.md. Add pagination header to all pages.}

@@ -28,11 +28,11 @@ When multiple sources contribute to a section, weave them together. Note disagre
 |------|-------------|--------|
 | {YYYY-MM-DD} | {Brief description} | {Source or rationale} |
 
-{OPTIONAL — include only when cross-references exist:}
+{OPTIONAL — only when cross-references exist:}
 
 ## See Also
 
-{Cross-references to related wiki articles. Maintained during ingest and lint. Use relative links:
+{Relative links:
 - Same topic: [Other Article](other-article.md)
 - Different topic: [Other Article](../other-topic/other-article.md)
 - Processed binary in same topic: [PDF Name](original-file.pdf.md)}

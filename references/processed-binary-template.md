@@ -12,34 +12,24 @@
 
 ## Key Content
 
-{Extract and synthesize the substantive content from the binary source.
+{Extract and synthesize substantive content.
 
-For PDFs/books:
-- Chapter-by-chapter or section-by-section breakdown
-- Key arguments, findings, or instructions
-- Important figures, tables, or diagrams described in text
-
-For images/diagrams:
-- Detailed description of what is depicted
-- Technical details visible in the image
-- Context and significance
-
-For other formats:
-- Adapt the extraction approach to the format
-- Always prioritize capturing the knowledge, not just describing the container}
+PDFs/books: chapter breakdown, key arguments, important figures described in text.
+Images/diagrams: detailed description, technical details, context significance.
+Other: adapt to format, prioritize capturing knowledge.}
 
 ## Notable Quotes / Excerpts
 
 {Direct quotes or exact data points worth preserving verbatim. Use blockquotes with page/section attribution:
 
-> "Exact quote from the source" — p. 42
+> "Exact quote" — p. 42
 
-Include only genuinely important passages. This is not a transcription — it is curation.}
+Curation, not transcription.}
 
 {OPTIONAL — include only when cross-references exist:}
 
 ## See Also
 
-{Cross-references to related wiki articles. Use relative links:
+{Relative links:
 - Same topic: [Other Article](other-article.md)
 - Different topic: [Other Article](../other-topic/other-article.md)}
