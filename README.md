@@ -1,2 +1,32 @@
 # llm-wiki
-A Simple Complete LLM Wiki Skill
+
+Knowledge base skill. Give it URLs, papers, or notes and it organizes them into wiki pages with an index and changelog.
+
+## Usage
+
+```
+wiki add <url/file/text>     Save a source, extract a topic page
+wiki research <topic>        Look it up, write an article
+wiki query <question>        Answer from existing pages
+wiki update <correction>     Fix or append to a page
+wiki check                   Find broken links, orphan pages
+```
+
+## How the wiki is laid out
+
+```
+wiki/
+├── index.md     # Topic entries grouped by category
+├── log.md       # Append-only activity log
+├── raw/         # Sources — never edited after creation
+├── topics/      # Written-up knowledge pages
+└── archives/    # Frozen query snapshots
+```
+
+## Rules it follows
+
+Sources in `wiki/raw/` are immutable. The skill reads them and writes summaries into `wiki/topics/`. Pages never get deleted — they grow and get corrected with date stamps. Every action goes into `wiki/log.md` so you can trace what happened and when.
+
+Based on the Karpathy LLM wiki pattern. Full instructions in [SKILL.md](./SKILL.md).
+
+Maintained by [CypherpunkSamurai](https://github.com/CypherpunkSamurai).
