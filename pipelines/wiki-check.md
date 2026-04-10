@@ -1,35 +1,32 @@
-# Pipeline: Check
+# Check
 
-Quality checks on the wiki.
+Wiki quality checks.
 
 <autofix>
 ## Auto-fix
 
-Fix these automatically:
-
-- **Index consistency** — file exists but missing from index → add with `(no summary)`. Index entry points to missing file → mark `[MISSING]`.
-- **Broken internal links** — search wiki for moved files. Unique match → fix path. Zero/multiple → report.
-- **Broken raw references** — same approach for Raw field links.
-- **See Also** — add obvious missing cross-refs within topic dirs. Remove dead links.
+- **Index** — missing file → add `(no summary)`. Missing entry → mark `[MISSING]`, don't delete.
+- **Internal links** — broken → search wiki for same filename. Unique match → fix. Else → report.
+- **Raw refs** — broken Raw field link → search `./wiki/raw/`. Unique match → fix. Else → report.
+- **See Also** — add obvious missing cross-refs, remove dead links.
 </autofix>
 
 <report>
 ## Report Only
 
-Flag but don't auto-fix:
-
 - Factual contradictions across articles
 - Outdated claims superseded by newer sources
-- Orphan pages with no inbound links
-- Raw files never processed into a topic article
+- Missing conflict annotations
+- Orphan pages (no inbound links)
+- Concepts mentioned often but lacking dedicated page
+- Archives citing substantially updated source articles
+- Unprocessed raw files
 </report>
 
 <post>
-## Post-Check
-
-Append to `wiki/log.md`:
+Append Log: 
 ```
-## check | <N> issues found, <M> auto-fixed
+## [YYYY-MM-DD HH:MM] check | <N> issues found, <M> auto-fixed
 - <brief list of issues>
 ```
 </post>

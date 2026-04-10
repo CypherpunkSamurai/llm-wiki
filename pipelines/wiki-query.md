@@ -1,28 +1,18 @@
-# Pipeline: Query
+# Query
 
-Search wiki and answer from accumulated knowledge.
+Search wiki, answer from accumulated knowledge.
 
 <steps>
-## Steps
-
-1. Read `wiki/index*.md` to locate relevant articles
-2. Read those articles, synthesize an answer
-3. Prefer wiki content over training knowledge. Cite: `[Title](wiki/topics/<topic>/<article>.md)`
+1. Read `./wiki/index*.md` → locate relevant articles
+2. Read articles, synthesize answer
+3. Prefer wiki over training knowledge. Cite: `[[Title]](./wiki/topics/<topic>/<article>.md)`
 4. Output in conversation. No file writes unless asked.
 </steps>
 
 <archive>
-## Archive
+## Archive (only when user asks to save)
 
-When user explicitly asks to save the answer:
-
-1. Write to `wiki/archives/` per `../references/archive-template.md`
-   - Always new page, never merge into existing articles
-   - Sources: links to cited topic articles
-   - No Raw field
-2. Update `wiki/index.md` — prefix summary with `[Archived]`
-3. Append to `wiki/log.md`:
-   ```
-   ## query | Archived: <page title>
-   ```
+1. New page in `./wiki/archives/` per `../references/archive-template.md`. Never merge. No Raw field. Rewrite project-root paths to file-relative.
+2. Update index — prefix summary with `[Archived]`
+3. Log: `## [YYYY-MM-DD HH:MM] query | Archived: <page title>`
 </archive>

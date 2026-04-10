@@ -14,11 +14,11 @@ Identify what the user wants and read the corresponding pipeline file (relative 
 
 | Intent | Pipeline |
 |--------|----------|
-| Add a source (URL, file, paste) | `pipelines/wiki-add.md` |
-| Research a topic exhaustively, follow tangents | `pipelines/wiki-research.md` |
-| Ask a question about existing knowledge | `pipelines/wiki-query.md` |
-| Correct or append to existing articles | `pipelines/wiki-update.md` |
-| Check wiki health, fix broken links | `pipelines/wiki-check.md` |
+| Add a source (URL, file, paste) | [[wiki-add.md]](./pipelines/wiki-add.md) |
+| Research a topic exhaustively, follow tangents | [[wiki-research.md]](./pipelines/wiki-research.md) |
+| Ask a question about existing knowledge | [[wiki-query.md]](./pipelines/wiki-query.md) |
+| Correct or append to existing articles | [[wiki-update.md]](./pipelines/wiki-update.md) |
+| Check wiki health, fix broken links | [[wiki-check.md]](./pipelines/wiki-check.md) |
 
 Read only the pipeline you need. Do not load all of them.
 </routing>
@@ -45,7 +45,7 @@ wiki/
 
 - `raw/` — Immutable. Type subdirs, optional topic nesting. Text gets metadata header. Binaries as-is.
 - `topics/` — Processed knowledge. Max 2 levels of subdirs. Append-only growth.
-- `archives/` — Frozen query snapshots.
+- `archives/` — Frozen, point-in-time snapshots of synthesized answers. never cascade-updated, never merged to topic articles, only cite `topics/` articles (not `raw/` sources).
 - `index.md` — One row per article, grouped by topic, link + summary.
 - `log.md` — Every action logged.
 - Dates in content: log entries get `[YYYY-MM-DD HH:MM]`, raw metadata headers get Published date, corrections get date annotation. No dates in filenames. Filesystem modification time for article "last updated".
@@ -70,5 +70,5 @@ If Query or Check can't find wiki structure: tell user to add something first.
 - Knowledge only grows — append and correct, never delete or reduce topic content.
 - Binaries in `raw/` referenced by `.md` counterpart in `topics/`.
 - All operations update `log.md`. Add/Research/Archive/Update also update `index.md`.
-- Templates live in `references/` relative to this file. Read when you need exact format.
+- Templates live in [./references/](./references/) relative to this file. Read when you need exact format.
 </conventions>

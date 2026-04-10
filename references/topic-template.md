@@ -1,7 +1,7 @@
 # {Title}
 
 > Sources: {Author1/Org1, YYYY-MM-DD; Author2/Org2, YYYY-MM-DD}
-> Raw: [{source1}](../../raw/{type}/{topic}/{filename}.md); [{source2}](../../raw/{type}/{topic}/{filename2}.md)
+> Raw: [[{source1}]](../../raw/{type}/{topic}/{filename}.md); [[{source2}]](../../raw/{type}/{topic}/{filename2}.md)
 > Updated: {YYYY-MM-DD}
 
 ## Overview
@@ -33,6 +33,6 @@ When multiple sources contribute to a section, weave them together. Note disagre
 ## See Also
 
 {Relative links:
-- Same topic: [Other Article](other-article.md)
-- Different topic: [Other Article](../other-topic/other-article.md)
-- Processed binary in same topic: [PDF Name](original-file.pdf.md)}
+- Same topic: [[Other Article]](other-article.md)
+- Different topic: [[Other Article]](../other-topic/other-article.md)
+- Processed binary in same topic: [[PDF Name]](original-file.pdf.md)}

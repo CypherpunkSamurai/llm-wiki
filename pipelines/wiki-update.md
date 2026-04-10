@@ -1,24 +1,16 @@
-# Pipeline: Update
+# Update
 
-Append to or correct existing knowledge without re-ingesting.
+Append or correct existing knowledge without re-ingesting.
 
 <steps>
-## Steps
-
-1. Locate target article(s) in `wiki/topics/`
-2. Apply change:
-
-   **Correction** — strikethrough old claim, add attribution:
-   ```markdown
-   ~~Previous claim~~ **Corrected:** New info. (Source: <attribution>)
+1. Locate article(s) in `./wiki/topics/`
+2. **Correct:** `~~Old claim~~ **Corrected [YYYY-MM-DD]:** New info. (Source: <attribution>)`
+   **Append:** add to appropriate section.
+3. Cascade — update articles referencing changed content
+4. Update index if summary changed
+5. Add Log `wiki/log(?\-[0-9]*\.md)`:
    ```
-
-   **Append** — add new information to appropriate section.
-
-3. Run cascade update logic — other articles referencing changed content may need updating
-4. Update `wiki/index.md` if summary changed
-5. Append to `wiki/log.md`:
-   ```
-   ## update | <article title> — <brief reason>
+   ## [YYYY-MM-DD HH:MM] update | <article> — <reason>
+   - <brief description of changes>
    ```
 </steps>

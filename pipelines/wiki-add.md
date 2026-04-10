@@ -1,55 +1,46 @@
-# Pipeline: Add
+# Add
 
-User provides a source (URL, file, paste). Two phases, always both.
+Source (URL, file, paste) → ./raw/ → ./topics/. Always both phases.
 
 <fetch>
-## Phase 1: Fetch → raw/
+## Fetch → ./raw/
 
-1. Acquire content via available tools. If unreachable, ask user to paste.
-2. Classify source type → pick `raw/` subdir (`articles/`, `books/`, `papers/`, `conversations/`, `other/`). Create if missing. Optional topic nesting within type dir.
-3. Save as `raw/<type>/<optional-topic>/descriptive-slug.md`
-   - Slug from title, kebab-case, max 60 chars
-   - Duplicate names → append numeric suffix
-   - Metadata header per `../references/raw-template.md`
-   - Preserve original text. Clean formatting noise only. Do not rewrite opinions unless false.
+1. Acquire via available tools. Unreachable → ask user to paste.
+2. Classify source → `./raw/` subdir: `./raw/articles/`, `./raw/books/`, `./raw/papers/`, `./raw/conversations/`, `./raw/other/`. Reuse existing subdirs when topic is close enough.
+3. Save as `./raw/<type>/<optional-topic>/descriptive-slug.md`
+   - Kebab-case slug from title, max 60 chars. Duplicates? → `-2.md`
+   - Published unknown? → metadata `Unknown`
+   - Header per `../references/raw-template.md`. Preserve original text, clean noise only. Do not rewrite opinions unless false.
    - Binaries: save directly, no metadata header.
 </fetch>
 
 <process>
-## Phase 2: Process → topics/
+## Process → ./topics/
 
-Determine placement:
-- **Same thesis as existing article** → Append to that article. Add source to metadata.
-- **New concept** → Create new article. Name after concept, not raw file.
-- **Processed binary** → Create `<original-filename>.md` linking back to raw.
-- **Spans topics** → Most relevant dir + See Also cross-references.
+- **Same thesis as existing** → append to article, add source to metadata
+- **New concept** → new article, name after concept not raw file
+- **Binary** → `<filename>.md` linking to raw. Use `../references/processed-binary-template.md`
+- **Spans topics** → most relevant dir + See Also cross-refs
 
-Not mutually exclusive — one source may merge into one article and spawn another.
+One source may both merge and spawn. Conflicts: annotate inline with attribution, cross-link.
 
-**Conflicts:** Annotate disagreement with source attribution inline. Cross-link conflicting articles.
-
-Article format: `../references/topic-template.md`
+Format: `../references/topic-template.md`
 </process>
 
 <cascade>
-## Phase 3: Cascade
+## Cascade
 
-1. Scan same topic dir for affected articles
-2. Scan index entries in other topics for related concepts
-3. Update materially affected articles
-
-Archives are never cascade-updated.
+Scan same topic dir + index entries in other topics. Update materially affected articles. Never cascade archives.
 </cascade>
 
 <post>
-## Phase 4: Post-Add
+## Post-Add
 
-1. Update `wiki/index.md` — add/update entries for touched articles. Format per `../references/index-template.md`. Paginate at ~200 entries.
-2. Append to `wiki/log.md`:
+1. Update `./wiki/index.md` add/update entries per `../references/index-template.md`. New topic sections get one-line description. Paginate at ~200.
+2. Append to `wiki/log(?-*).md`:
    ```
-   ## add | <primary article title>
-   - Source: <raw file path>
-   - Updated: <cascade-updated article title>
+   ## [YYYY-MM-DD HH:MM] add | <article title>
+   - Source: <raw path>
+   - Updated: <cascade article>
    ```
-   Omit `- Updated:` lines when no cascade.
 </post>

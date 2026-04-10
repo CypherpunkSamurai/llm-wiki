@@ -1,7 +1,7 @@
 # {Original Filename} — Processed
 
 > Sources: {Author/Publisher, YYYY-MM-DD or Unknown}
-> Raw: [{original-filename}](../../raw/{type}/{topic}/{original-filename})
+> Raw: [[{original-filename}]](../../raw/{type}/{topic}/{original-filename})
 > Updated: {YYYY-MM-DD}
 > Format: {PDF | Image | Video | Audio | Other}
 > Pages: {page count if applicable, or N/A}
@@ -31,5 +31,5 @@ Curation, not transcription.}
 ## See Also
 
 {Relative links:
-- Same topic: [Other Article](other-article.md)
-- Different topic: [Other Article](../other-topic/other-article.md)}
+- Same topic: [[Other Article]](other-article.md)
+- Different topic: [[Other Article]](../other-topic/other-article.md)}
