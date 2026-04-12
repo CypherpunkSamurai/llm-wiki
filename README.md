@@ -2,6 +2,8 @@
 
 Knowledge base skill. Give it URLs, papers, or notes and it organizes them into wiki pages with an index and changelog.
 
+> Note: This isn't Karpathy's LLM-Wiki rather My Own Note Taking Method
+
 ## Usage
 
 ```
@@ -27,6 +29,6 @@ wiki/
 
 Sources in `wiki/raw/` are immutable. The skill reads them and writes summaries into `wiki/topics/`. Pages never get deleted — they grow and get corrected with date stamps. Every action goes into `wiki/log.md` so you can trace what happened and when.
 
-Based on the Karpathy LLM wiki pattern. Full instructions in [SKILL.md](./SKILL.md).
+Based on My Own Note Taking Ways, and like [Karpathy LLM wiki](https://gist.githubusercontent.com/karpathy/442a6bf555914893e9891c11519de94f/raw/ac46de1ad27f92b28ac95459c782c07f6b8c964a/llm-wiki.md) pattern. Full instructions in [SKILL.md](./SKILL.md).
 
 Maintained by [CypherpunkSamurai](https://github.com/CypherpunkSamurai).

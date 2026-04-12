@@ -6,7 +6,7 @@ Research expands the wiki, not just the current answer. Follow the main topic an
 
 <critical>
 1. Always create or capture raw references before changing topic pages.
-2. Prefer extending and correcting existing pages over replacing them wholesale.
+2. Prefer append-only extension of existing pages. Correct prior claims only when newer evidence changes the state of knowledge or shows the prior claim was wrong.
 3. Tangents with lasting value become their own raw and topic entries, not throwaway chat notes.
 4. Use attribution when newer findings challenge older claims.
 5. Keep archives frozen; research updates topics and index, not old snapshots.
@@ -24,7 +24,7 @@ Research expands the wiki, not just the current answer. Follow the main topic an
 3. Research only the missing pieces. For each new source, create a raw reference first, then integrate it into the most relevant topic page.
 4. If no relevant page exists, research the topic, create raw references, and build one or more new topic pages from them.
 5. When research produces tangential but durable knowledge, create separate topic entries and cross-link them with `See Also`.
-6. Append or correct existing pages instead of rewriting them from scratch. Use explicit attribution for conflicts or superseded claims.
+6. Append to existing pages instead of rewriting them from scratch. Correct only when a claim is superseded or false, and use explicit attribution for conflicts.
 7. Update `./wiki/index.md` for every new or modified topic page.
 8. Append a log entry:
    `## [YYYY-MM-DD HH:MM] research | <primary topic>`

@@ -87,7 +87,8 @@ If Query or Check can't find wiki structure: tell user to add something first.
 - Standard markdown, relative links throughout.
 - `topics/` max 2 levels. `raw/<topic>/<type>/` mirrors topics/ structure.
 - Inside wiki files: relative links. In conversation: project-root-relative paths.
-- Knowledge only grows — append and correct, never delete or reduce topic content.
+- Default to append-only updates. Correct existing claims only when the underlying knowledge has changed, been superseded, or is clearly false.
+- Knowledge only grows — append and correct when needed, never delete or reduce topic content.
 - Binaries in `raw/` referenced by `.md` counterpart in `topics/`.
 - All operations update `log.md`. Add/Research/Archive/Update also update `index.md`.
 - Templates live in [./references/](./references/) relative to this file. Read when you need exact format.
