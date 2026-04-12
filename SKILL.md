@@ -11,6 +11,19 @@ metadata:
 
 Persistent, append-only knowledge base. Raw sources → processed references → topic knowledge.
 
+<schema>
+## Pipeline Schema
+
+Pipeline files use the same compact blocks for low-context models:
+
+- `<info>`: short purpose and the core idea behind the operation
+- `<critical>`: non-negotiable rules
+- `<tool-choices>`: preferred tools or lookup order
+- `<step>`: ordered actions only
+
+Keep each block dense and operational. Put principles in `info`, constraints in `critical`, tool fallbacks in `tool-choices`, and execution order in `step`.
+</schema>
+
 <routing>
 ## Determine Pipeline
 
@@ -25,6 +38,7 @@ Identify what the user wants and read the corresponding pipeline file (relative 
 | Check wiki health, fix broken links | [[wiki-check.md]](./pipelines/wiki-check.md) |
 
 Read only the pipeline you need. Do not load all of them.
+After reading a pipeline, follow its `<critical>` rules before executing any `<step>`.
 </routing>
 
 <structure>

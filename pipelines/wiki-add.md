@@ -1,59 +1,36 @@
 # Add
 
-Source (URL, file, paste) → ./raw/ → ./topics/. Always both phases.
+<info>
+Turn one source into durable knowledge. Preserve the raw source first, then integrate its meaning into the wiki so future queries reuse accumulated synthesis instead of rediscovering it.
+</info>
 
-<fetch>
-## Fetch → ./raw/
+<critical>
+1. Always do both phases: raw capture, then topic processing.
+2. Raw files are immutable. Save the source as-is before summarizing or restructuring it.
+3. Reuse existing topics when the source materially overlaps them; create a new topic only when the index has no strong fit.
+4. One source may update several topic pages. Note conflicts inline with attribution instead of silently resolving them.
+5. Never cascade changes into `./wiki/archives/`.
+</critical>
 
-1. Read `./wiki/index.md` to find semantically related or overlapping topics.
-2. **Related topic found** → use that topic name for this source.
-   **No related topic** → pick a new topic slug, create `./raw/<topic>/`.
-3. **Detect available download tools** (run once, cache result):
-   ```
-   where curl && where wget && where aria2c && where python && where python3 && where uv && where node && where bun && where powershell && where pwsh
-   ```
-   On Unix: `which curl wget aria2c python python3 uv node bun powershell pwsh 2>/dev/null`
-   Use whichever tools are found. Prefer `aria2c` > `curl`/`wget` > `python`/`python3` > `node`/`bun` > `powershell`/`pwsh`.
-4. **Always attempt to download/copy the raw content as-is** using available tools:
-   - URLs: `curl`, `wget`, `aria2c`, `python3`, `nodejs`, `bun`, `powershell`, `pwsh`
-   - PDFs/Images: Download directly via same tools
-   - Raw text: Save user-provided content verbatim
-   - Unreachable → ask user to paste
-4. Save to `./raw/<topic>/<type>/<slug>` (binaries) or `<slug>.md` (text)
-   - Type: `articles/`, `papers/`, `books/`, `conversations/`, `other/`
-   - Kebab-case slug from title, max 60 chars. Duplicates? → `-2.md`
-   - Published unknown? → metadata `Unknown`
-   - **Text files**: Header per `../references/raw-template.md`. Preserve original text exactly, clean noise only. Do not rewrite opinions unless false.
-   - **Binaries (PDFs, images, etc.)**: Save as-is to `./raw/<topic>/<type>/`, no metadata header. Raw means raw.
-</fetch>
+<tool-choices>
+1. Read `./wiki/index*.md` first; avoid broad file scans until the index is insufficient.
+2. Detect download tools once and reuse the result.
+3. Prefer `aria2c`, then `curl` or `wget`, then `python` or `python3`, then `node` or `bun`, then `powershell` or `pwsh`.
+4. If a URL is unreachable, ask the user to paste or provide the file instead of inventing content.
+5. Use `../references/raw-template.md`, `../references/topic-template.md`, `../references/processed-binary-template.md`, and `../references/index-template.md` only when you need exact output shape.
+</tool-choices>
 
-<process>
-## Process → ./topics/
-
-- **Related topic exists** → append to matching article in `./topics/<topic>/`, add source to metadata
-- **No related article** → new article, name after concept not raw file
-- **Binary** → `<filename>.md` linking to raw. Use `../references/processed-binary-template.md`
-- **Spans topics** → most relevant dir + See Also cross-refs
-
-One source may both merge and spawn. Conflicts: annotate inline with attribution, cross-link.
-
-Format: `../references/topic-template.md`
-</process>
-
-<cascade>
-## Cascade
-
-Scan same topic dir + index entries in other topics. Update materially affected articles. Never cascade archives.
-</cascade>
-
-<post>
-## Post-Add
-
-1. Update `./wiki/index.md` add/update entries per `../references/index-template.md`. New topic sections get one-line description. Paginate at ~200.
-2. Append to `wiki/log(?-*).md`:
-   ```
-   ## [YYYY-MM-DD HH:MM] add | <article title>
-   - Source: <raw path>
-   - Updated: <cascade article>
-   ```
-</post>
+<step>
+1. Read `./wiki/index*.md` to find the closest existing topic or confirm a new topic is needed.
+2. Choose a topic slug. If related material already exists, reuse that topic; otherwise create a new topic path under `./wiki/raw/` and `./wiki/topics/`.
+3. Capture the source into `./wiki/raw/<topic>/<type>/` using a kebab-case slug capped at 60 chars. Text uses `<slug>.md`; binaries keep their native extension. Duplicates get `-2`, `-3`, and so on.
+4. For text raw files, use `../references/raw-template.md`, preserve source meaning exactly, and only clean obvious formatting noise. For binaries, save the file as-is with no metadata wrapper.
+5. Process the raw source into `./wiki/topics/<topic>/`. Merge into an existing article when the concept already exists; otherwise create a concept-oriented article name rather than mirroring the raw filename.
+6. If the raw file is binary, create a processed companion markdown page with `../references/processed-binary-template.md`.
+7. Scan the same topic and nearby indexed topics for materially affected pages. Append or correct them as needed, and add cross-links when the source spans multiple topics.
+8. Update `./wiki/index.md` with added or changed topic pages. Add a one-line topic description when creating a new topic section. Paginate at about 200 entries.
+9. Append a log entry:
+   `## [YYYY-MM-DD HH:MM] add | <article title>`
+   `- Source: <raw path>`
+   `- Updated: <cascade article>`
+</step>
