@@ -101,10 +101,10 @@ Order → fallback naturally:
 
 1. **Wiki** — `./wiki/index*.md` + topic pages before external search
 2. **Inbuilt search** — general lookups, paginate for multi-page
-3. **Exa / Tavily / Linkup** — equal priority when quota allows, paginate for multi-page. Exa = semantic, Tavily = web depth (`tavily_research` when ~10 searches insufficient), Linkup = natural language
-4. **GitHub** — `https://github.com/search?q=<query>+language%3A<lang>&type=repositories&s=updated&o=desc`
-5. **arXiv / alphaxiv** — academic papers
-6. **Fetch** — `web_fetch`, `linkup-fetch`, `exa_fetch` for URL content
+3. **External search** — equal priority when quota allows. Semantic search, web depth, natural language queries. Use comprehensive research when ~10 searches insufficient. Paginate for multi-page results.
+4. **GitHub** — codebase search with language filter, sort by recently updated
+5. **arXiv / alphaxiv** — academic papers and preprints
+6. **Fetch** — read URL content after search finds it
 
 Search fails → paginate, alternate tools, ask user.
 </search-strategy>
