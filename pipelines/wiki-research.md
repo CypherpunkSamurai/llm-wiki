@@ -16,6 +16,7 @@ Research grows the wiki, not just the current answer. Follow the main topic and 
 1. Start with `./wiki/index*.md`; use targeted reads before wide searching.
 2. When the wiki already covers the topic, read only the relevant pages and the sources needed to fill clear gaps.
 3. Reuse the Add pipeline rules for raw capture, topic templates, and binary handling.
+4. Search tools: inbuilt search → `exa`/`tavily`/`linkup` (equal priority, paginate) → GitHub codebase search (`https://github.com/search?q=<query>+language%3A<lang>&type=repositories&s=updated&o=desc`) → `arxiv`/`alphaxiv`. Use `tavily_research` when ~10 focused searches fall short.
 </tool-choices>
 
 <step>

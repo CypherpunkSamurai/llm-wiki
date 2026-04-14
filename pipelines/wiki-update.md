@@ -15,7 +15,7 @@ Keep the wiki up to date without re-saving the original source. Default to addin
 1. Read the target page and any directly dependent topic pages before editing.
 2. Prefer small edits over wide rewrites.
 3. Reuse the existing fix pattern exactly when fixing a claim that truly needs correction.
-4. Source priority: user files/text → web search → `exa`/`tavily`/`linkup`/`arxiv` → others. Use parallel targeted searches; reserve one-click research for when ~10 focused searches fall short (tavily_research etc).
+4. Source priority: user files/text → inbuilt search → `exa`/`tavily`/`linkup` (equal priority, use pagination) → `arxiv`/`alphaxiv` → others. For code, use GitHub search: `https://github.com/search?q=<query>+language%3A<lang>&type=repositories&s=updated&o=desc`.
 </tool-choices>
 
 <step>

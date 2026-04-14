@@ -18,7 +18,7 @@ Save a source into the wiki. First save the raw source as-is, then turn its mean
 3. Try `aria2c` first, then `curl` or `wget`, then `python` or `python3`, then `node` or `bun`, then `powershell` or `pwsh`.
 4. If a URL does not work, ask the user to paste text or provide a file instead of making up content.
 5. Use `../references/raw-template.md`, `../references/topic-template.md`, `../references/processed-binary-template.md`, and `../references/index-template.md` only when you need exact output format.
-6. Source priority: user files/text → web search → `exa`/`tavily`/`linkup`/`arxiv` → others. Use parallel targeted searches; reserve one-click research for when ~10 focused searches fall short (tavily_research etc).
+6. Source priority: user files/text → inbuilt search → `exa`/`tavily`/`linkup` (equal priority, use pagination) → `arxiv`/`alphaxiv` → others. For codebases, use GitHub search: `https://github.com/search?q=<query>+language%3A<lang>&type=repositories&s=updated&o=desc`. Reserve one-click research for when ~10 focused searches fall short.
 </tool-choices>
 
 <step>

@@ -93,3 +93,18 @@ If Query or Check can't find wiki structure: tell user to add something first.
 - All actions update `log.md`. Add/Research/Archive/Update also update `index.md`.
 - Templates are in [./references/](./references/) relative to this file. Read them when you need exact format.
 </conventions>
+
+<search-strategy>
+## Search Strategy
+
+Order → fallback naturally:
+
+1. **Wiki** — `./wiki/index*.md` + topic pages before external search
+2. **Inbuilt search** — general lookups, paginate for multi-page
+3. **Exa / Tavily / Linkup** — equal priority when quota allows. Exa = semantic, Tavily = web depth (`tavily_research` when ~10 searches insufficient), Linkup = natural language
+4. **GitHub** — `https://github.com/search?q=<query>+language%3A<lang>&type=repositories&s=updated&o=desc`
+5. **arXiv / alphaxiv** — academic papers
+6. **Fetch** — `web_fetch`, `linkup-fetch`, `exa_fetch` for URL content
+
+Search fails → paginate, alternate tools, ask user.
+</search-strategy>
